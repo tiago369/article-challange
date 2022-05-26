@@ -245,23 +245,21 @@ void setup()
 Nessa parte é definido o \textit{baud rate} e inicializa o display.
 
 \begin{lstlisting}[language=C]
-    void loop()
-{
-  if(Serial.available() > 0){
-    Serial.readBytes(mystr,11);
-    lcd.setCursor(0, 0);
-    if(mystr[0] == 'R'){
-      lcd.print(mystr);
-      delay(100);
-      Serial.write(resp);
-      break;
+  void loop()
+  {
+    if(Serial.available() > 0){
+      Serial.readBytes(mystr,11);
+      lcd.setCursor(0, 0);
+      if(mystr[0] == 'R'){
+        lcd.print(mystr);
+        delay(1000);
+      }
     }
+   
+   delay(300);
+   
+   lcd.clear();
   }
- 
- delay(300);
- 
- lcd.clear();
-}
 \end{lstlisting}
 
 Esta parte consiste em verificar se a porta serial esta disponivel e logo depois verificar se o sinal esta sendo enviado da maneira correta.
